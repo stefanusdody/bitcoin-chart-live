@@ -1,5 +1,6 @@
 import axios from "axios";
 import moment from 'moment'
+import { API } from '../config'
 
 export const getData = ({ time, number }) => async dispatch => {
   try {
@@ -7,7 +8,7 @@ export const getData = ({ time, number }) => async dispatch => {
       type: "AWAITING_BITCOIN"
     })
 
-    const response = await axios.get(`https://financialmodelingprep.com/api/v3/historical-chart/${time}/BTCUSD?apikey=f68aac27af231cd1effb076423327676`)
+    const response = await axios.get(`https://financialmodelingprep.com/api/v3/historical-chart/${time}/BTCUSD?apikey=${API}`)
     console.log("response", response.data);
 
     const labels = [];
